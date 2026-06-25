@@ -32,16 +32,47 @@ export function FinalCTA() {
             />
           </Suspense>
         ) : (
-          <AmbientDots count={36} />
+          <AmbientDots count={48} />
         )}
-        {/* darken to keep typography dominant */}
+
+        {/* Layered cinematic glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[1100px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.12) 0%, rgba(3,38,18,0.22) 30%, transparent 65%)",
+            filter: "blur(30px)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.18) 0%, transparent 70%)",
+            filter: "blur(40px)",
+            animation: "noct-pulse 6s ease-in-out infinite",
+          }}
+        />
+        {/* dim overlay so text dominates */}
         <div className="pointer-events-none absolute inset-0 bg-black/55" />
+        {/* vignette */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(700px 420px at 50% 55%, rgba(3,38,18,0.45) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)",
+          }}
+        />
+        {/* horizon emerald sweep */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
+          style={{
+            background:
+              "linear-gradient(0deg, rgba(0,255,102,0.08) 0%, transparent 100%)",
           }}
         />
       </div>
@@ -50,7 +81,7 @@ export function FinalCTA() {
         <p className="mb-6 text-[10px] uppercase tracking-[0.36em] text-[#888]">
           — the night is still awake
         </p>
-        <h2 className="font-display text-[clamp(2.4rem,6vw,5rem)] font-light leading-[1.04] tracking-[-0.02em] text-white">
+        <h2 className="font-display text-[clamp(2.2rem,6vw,5rem)] font-light leading-[1.04] tracking-[-0.02em] text-white drop-shadow-[0_0_40px_rgba(0,0,0,0.8)]">
           Questions don&apos;t sleep.
           <br />
           <span className="italic text-[#00ff66]">Neither does curiosity.</span>
