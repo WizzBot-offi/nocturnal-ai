@@ -108,9 +108,9 @@
 
 /* Ambient floating dots — mobile fallback */
 @keyframes noct-drift {
-  0%   { transform: translate3d(0, 0, 0); opacity: 0.35; }
-  50%  { transform: translate3d(0, -18px, 0); opacity: 0.7; }
-  100% { transform: translate3d(0, 0, 0); opacity: 0.35; }
+  0%   { transform: translate3d(0, 0, 0); opacity: 0.25; }
+  50%  { transform: translate3d(0, -18px, 0); opacity: 0.6; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.25; }
 }
 
 @utility noct-dot {
@@ -119,7 +119,7 @@
   height: 2px;
   border-radius: 9999px;
   background: #00ff66;
-  box-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+  box-shadow: 0 0 6px rgba(0, 255, 102, 0.55);
   animation: noct-drift 7s ease-in-out infinite;
 }
 
@@ -140,4 +140,47 @@
 @keyframes noct-pulse {
   0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
   50%      { opacity: 0.9;  transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* Slow drifting volumetric gradient (atmosphere-wide) */
+@keyframes noct-aurora {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.05); }
+  100% { transform: translate3d(-3%, -2%, 0) scale(1); }
+}
+
+@keyframes noct-aurora-alt {
+  0%   { transform: translate3d(4%, 3%, 0) scale(1.04); }
+  50%  { transform: translate3d(-4%, -3%, 0) scale(1); }
+  100% { transform: translate3d(4%, 3%, 0) scale(1.04); }
+}
+
+@utility noct-aurora { animation: noct-aurora 28s ease-in-out infinite; }
+@utility noct-aurora-alt { animation: noct-aurora-alt 36s ease-in-out infinite; }
+
+/* Subtle background grid */
+@utility noct-grid {
+  background-image:
+    linear-gradient(rgba(0,255,102,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,102,0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+}
+
+/* Floating dust particles (slow rise) */
+@keyframes noct-dust {
+  0%   { transform: translate3d(0,0,0); opacity: 0; }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.4; }
+  100% { transform: translate3d(0,-120px,0); opacity: 0; }
+}
+@utility noct-dust {
+  position: absolute;
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: rgba(0,255,102,0.85);
+  box-shadow: 0 0 4px rgba(0,255,102,0.5);
+  animation: noct-dust 14s linear infinite;
 }
