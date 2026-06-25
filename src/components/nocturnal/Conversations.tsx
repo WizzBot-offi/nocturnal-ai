@@ -79,14 +79,14 @@ function A({ children }: { children: React.ReactNode }) {
 
 export function Conversations() {
   return (
-    <section className="relative w-full overflow-hidden bg-black py-28 sm:py-40">
+    <section className="relative w-full overflow-hidden py-28 sm:py-40">
       {/* ambient backdrop */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/4 h-[600px] w-[1000px] -translate-x-1/2 opacity-60"
+        className="pointer-events-none absolute left-1/2 top-1/4 h-[600px] w-[1000px] -translate-x-1/2 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(3,38,18,0.45) 0%, transparent 65%)",
+            "radial-gradient(ellipse at center, rgba(3,38,18,0.4) 0%, transparent 65%)",
         }}
       />
 
@@ -100,15 +100,15 @@ export function Conversations() {
           </h2>
         </div>
 
-        {/* Intentional asymmetric composition */}
+        {/* Intentional staggered composition: editor as anchor, text cards flank with vertical offset */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
-          {/* Large featured card — recursion */}
-          <div className="lg:col-span-7 lg:row-span-2">
+          {/* Recursion — left, slight top alignment */}
+          <div className="lg:col-span-5">
             <CardShell
               index={0}
               label="conversation 01"
               time="2:14 am"
-              className="lg:min-h-[420px]"
+              className="lg:min-h-[280px]"
             >
               <Q>Explain recursion simply.</Q>
               <A>
@@ -123,35 +123,40 @@ export function Conversations() {
             </CardShell>
           </div>
 
-          {/* Sky blue — compact */}
-          <div className="lg:col-span-5">
-            <CardShell index={2} label="conversation 03" time="2:41 am">
+          {/* Python editor — featured anchor, spans two rows */}
+          <div className="lg:col-span-7 lg:row-span-2">
+            <CardShell
+              index={1}
+              label="conversation 02"
+              time="2:27 am"
+              className="lg:min-h-[600px] p-5 sm:p-7"
+            >
+              <div className="mb-6">
+                <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">
+                  question
+                </div>
+                <p className="font-display text-xl font-light leading-snug text-white sm:text-2xl">
+                  Give me a Python palindrome checker.
+                </p>
+              </div>
+              <CodeEditor />
+            </CardShell>
+          </div>
+
+          {/* Sky — left, offset down to stagger */}
+          <div className="lg:col-span-5 lg:mt-8">
+            <CardShell
+              index={2}
+              label="conversation 03"
+              time="2:41 am"
+              className="lg:min-h-[280px]"
+            >
               <Q>Why is the sky blue?</Q>
               <A>
                 Shorter wavelengths scatter more in our atmosphere. What
                 reaches your eyes from every direction is the leftover —
                 blue.
               </A>
-            </CardShell>
-          </div>
-
-          {/* Python editor — VS Code styled */}
-          <div className="lg:col-span-5">
-            <CardShell
-              index={1}
-              label="conversation 02"
-              time="2:27 am"
-              className="p-5 sm:p-6"
-            >
-              <div className="mb-5">
-                <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">
-                  question
-                </div>
-                <p className="font-display text-lg font-light leading-snug text-white sm:text-xl">
-                  Give me a Python palindrome checker.
-                </p>
-              </div>
-              <CodeEditor />
             </CardShell>
           </div>
         </div>

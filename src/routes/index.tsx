@@ -4,6 +4,7 @@ import { Transition } from "@/components/nocturnal/Transition";
 import { Conversations } from "@/components/nocturnal/Conversations";
 import { FinalCTA } from "@/components/nocturnal/FinalCTA";
 import { Footer } from "@/components/nocturnal/Footer";
+import { Atmosphere } from "@/components/nocturnal/Atmosphere";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,12 +30,15 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Hero />
-      <Transition />
-      <Conversations />
-      <FinalCTA />
-      <Footer />
+    <main className="relative min-h-screen bg-black text-white">
+      <Atmosphere />
+      <div className="relative z-10">
+        <Hero />
+        <Transition />
+        <Conversations />
+        <FinalCTA />
+        <Footer />
+      </div>
     </main>
   );
 }
