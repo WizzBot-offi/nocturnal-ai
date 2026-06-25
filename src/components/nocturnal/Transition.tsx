@@ -49,24 +49,24 @@ function Dust({ count = 60 }: { count?: number }) {
 export function Transition() {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Volumetric soft gradient — top */}
+      {/* Volumetric soft gradient — top (no ring, smooth fall-off) */}
       <div
         aria-hidden
-        className="noct-aurora pointer-events-none absolute left-1/2 top-[10%] h-[70vh] w-[70vh] -translate-x-1/2 rounded-full opacity-40"
+        className="noct-aurora pointer-events-none absolute left-1/2 top-[15%] h-[90vh] w-[90vh] -translate-x-1/2 rounded-full opacity-50"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,255,102,0.07) 0%, rgba(3,38,18,0.10) 40%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(circle, rgba(0,255,102,0.06) 0%, rgba(0,255,102,0.025) 35%, transparent 70%)",
+          filter: "blur(90px)",
         }}
       />
       {/* Volumetric soft gradient — bottom-right */}
       <div
         aria-hidden
-        className="noct-aurora-alt pointer-events-none absolute right-[5%] bottom-[10%] h-[60vh] w-[60vh] rounded-full opacity-35"
+        className="noct-aurora-alt pointer-events-none absolute right-[5%] bottom-[10%] h-[70vh] w-[70vh] rounded-full opacity-40"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,255,102,0.06) 0%, transparent 70%)",
-          filter: "blur(70px)",
+            "radial-gradient(circle, rgba(0,255,102,0.05) 0%, transparent 70%)",
+          filter: "blur(90px)",
         }}
       />
 
