@@ -37,29 +37,29 @@ export function Hero() {
       </header>
 
       {/* Main hero grid */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 pb-16 pt-6 sm:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:pb-24 lg:pt-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:pb-24 lg:pt-8">
         {/* LEFT */}
         <div className="relative">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-[#888888]">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-[9px] uppercase tracking-[0.28em] text-[#888888] sm:mb-6 sm:text-[10px]">
             <span className="h-1 w-1 rounded-full bg-[#00ff66]" />
             A quiet intelligence
           </p>
 
-          <h1 className="font-display text-[clamp(2.5rem,6.2vw,5.25rem)] font-light leading-[1.02] tracking-[-0.02em] text-white">
+          <h1 className="font-display text-[clamp(2.6rem,6.2vw,5.25rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
             Some questions deserve{" "}
             <span className="italic text-[#00ff66]">better</span>{" "}
             answers.
           </h1>
 
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-[#888888] sm:text-lg">
+          <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#888888] sm:mt-7 sm:text-lg">
             Built for late-night curiosity, quick answers and meaningful
             conversations.
           </p>
 
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <a
               href="#enter"
-              className="cta-glow group relative inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-6 py-3.5 text-sm font-medium text-[#001a08] transition-transform duration-300 hover:-translate-y-0.5"
+              className="cta-glow group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#00ff66] px-6 py-4 text-sm font-medium text-[#001a08] transition-transform duration-300 hover:-translate-y-0.5 sm:py-3.5"
             >
               Try Nocturnal
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -68,39 +68,30 @@ export function Hero() {
               href="https://wizzbot-offi.vercel.app/"
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-sm font-medium text-white/90 transition-colors hover:border-white/40 hover:bg-white/[0.03]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-sm font-medium text-white/90 transition-colors hover:border-white/40 hover:bg-white/[0.03] sm:py-3.5"
             >
               Learn more about the creator
               <ArrowUpRight className="h-4 w-4 opacity-60 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
 
-          <div className="mt-14 flex items-center gap-6 text-[11px] uppercase tracking-[0.24em] text-[#666]">
+          <div className="mt-12 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.24em] text-[#666] sm:mt-14 sm:gap-6 sm:text-[11px]">
             <span>No noise.</span>
-            <span className="h-px w-10 bg-white/15" />
+            <span className="h-px w-6 bg-white/15 sm:w-10" />
             <span>No clutter.</span>
-            <span className="h-px w-10 bg-white/15" />
+            <span className="h-px w-6 bg-white/15 sm:w-10" />
             <span>Just answers.</span>
           </div>
         </div>
 
-        {/* RIGHT — 3D model (desktop only) */}
-        <div className="relative h-[420px] w-full lg:h-[620px]">
-          {!isMobile ? (
+        {/* RIGHT — 3D model (desktop only). On mobile, hide entirely for an intentional, type-led layout. */}
+        {!isMobile && (
+          <div className="relative h-[420px] w-full lg:h-[620px]">
             <SplineHero />
-          ) : (
-            <div className="relative h-full w-full">
-              <div
-                className="absolute inset-0 rounded-3xl"
-                style={{
-                  background:
-                    "radial-gradient(circle at 50% 50%, rgba(0,255,102,0.12) 0%, rgba(3,38,18,0.25) 40%, transparent 75%)",
-                }}
-              />
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
+
 
       {/* scroll hint */}
       <div className="pointer-events-none absolute bottom-6 left-1/2 z-20 -translate-x-1/2 text-[10px] uppercase tracking-[0.36em] text-[#555]">
