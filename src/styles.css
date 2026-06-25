@@ -136,3 +136,8 @@
   from { transform: scaleY(0); }
   to   { transform: scaleY(1); }
 }
+
+@keyframes noct-pulse {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.9;  transform: translate(-50%, -50%) scale(1.08); }
+}
