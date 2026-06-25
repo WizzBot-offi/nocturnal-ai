@@ -4,6 +4,7 @@ import { Transition } from "@/components/nocturnal/Transition";
 import { Conversations } from "@/components/nocturnal/Conversations";
 import { FinalCTA } from "@/components/nocturnal/FinalCTA";
 import { Footer } from "@/components/nocturnal/Footer";
+import { Atmosphere } from "@/components/nocturnal/Atmosphere";
 
 export const Route = createFileRoute("/")({
   head: () => ({
