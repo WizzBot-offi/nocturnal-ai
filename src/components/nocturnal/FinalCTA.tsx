@@ -14,10 +14,58 @@ export function FinalCTA() {
   return (
     <section
       id="enter"
-      className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black"
+      className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
     >
-      {/* particles background — desktop only */}
+      {/* === Layered depth background === */}
       <div className="absolute inset-0">
+        {/* Subtle grid */}
+        <div className="noct-grid absolute inset-0 opacity-[0.55]" />
+
+        {/* Deep ambient bowl — darkens the edges, creates depth */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 90% 70% at 50% 55%, rgba(3,38,18,0.45) 0%, rgba(0,0,0,0) 60%)",
+          }}
+        />
+
+        {/* Soft radial bloom — back layer */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[1200px] w-[1200px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.09) 0%, rgba(3,38,18,0.16) 32%, transparent 65%)",
+            filter: "blur(60px)",
+          }}
+        />
+
+        {/* Mid bloom */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.10) 0%, transparent 70%)",
+            filter: "blur(50px)",
+          }}
+        />
+
+        {/* Pulsing inner bloom (depth, not brightness) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.13) 0%, transparent 72%)",
+            filter: "blur(40px)",
+            animation: "noct-pulse 8s ease-in-out infinite",
+          }}
+        />
+
+        {/* Floating particles — desktop WebGL, mobile CSS fallback */}
         {!isMobile ? (
           <Suspense fallback={null}>
             <FloatingParticles
@@ -35,44 +83,35 @@ export function FinalCTA() {
           <AmbientDots count={48} />
         )}
 
-        {/* Layered cinematic glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[1100px] w-[1100px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,102,0.12) 0%, rgba(3,38,18,0.22) 30%, transparent 65%)",
-            filter: "blur(30px)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,102,0.18) 0%, transparent 70%)",
-            filter: "blur(40px)",
-            animation: "noct-pulse 6s ease-in-out infinite",
-          }}
-        />
-        {/* dim overlay so text dominates */}
-        <div className="pointer-events-none absolute inset-0 bg-black/55" />
-        {/* vignette */}
+        {/* Dim overlay — keeps text dominant, deepens atmosphere */}
+        <div className="pointer-events-none absolute inset-0 bg-black/60" />
+
+        {/* Vignette */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%)",
+              "radial-gradient(ellipse at center, transparent 28%, rgba(0,0,0,0.78) 100%)",
           }}
         />
-        {/* horizon emerald sweep */}
+
+        {/* Horizon emerald sweep (subtle) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-56"
           style={{
             background:
-              "linear-gradient(0deg, rgba(0,255,102,0.08) 0%, transparent 100%)",
+              "linear-gradient(0deg, rgba(0,255,102,0.05) 0%, transparent 100%)",
+          }}
+        />
+        {/* Top continuity fade */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-40"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%)",
           }}
         />
       </div>
