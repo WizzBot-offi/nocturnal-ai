@@ -118,20 +118,8 @@ export function Conversations() {
           </div>
 
           <div className="mx-auto w-full max-w-4xl">
-            <CardShell
-              index={1}
-              label="conversation 02"
-              time="2:27 am"
-              className="p-5 sm:p-7"
-            >
-              <div className="mb-6">
-                <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">
-                  question
-                </div>
-                <p className="font-display text-xl font-light leading-snug text-white sm:text-2xl">
-                  Give me a Python palindrome checker.
-                </p>
-              </div>
+            <CardShell index={1} label="conversation 02" time="2:27 am">
+              <Q>Give me a Python palindrome checker.</Q>
               <CodeEditor />
             </CardShell>
           </div>

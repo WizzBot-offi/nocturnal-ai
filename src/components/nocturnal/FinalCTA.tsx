@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { AmbientDots } from "./AmbientDots";
 
@@ -9,7 +9,7 @@ const FloatingParticles = lazy(() =>
   }))
 );
 
-// Floating dust motes (CSS-only)
+// Floating dust motes (CSS-only) — feels like distant stars
 function DustField({ count = 26 }: { count?: number }) {
   const motes = Array.from({ length: count }).map((_, i) => {
     const left = (i * 53) % 100;
@@ -29,6 +29,41 @@ function DustField({ count = 26 }: { count?: number }) {
     );
   });
   return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">{motes}</div>;
+}
+
+// Static starfield — tiny pinpoints of light, no motion
+function Starfield({ count = 80 }: { count?: number }) {
+  const stars = useMemo(
+    () =>
+      Array.from({ length: count }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() < 0.85 ? 1 : 1.5,
+        opacity: 0.25 + Math.random() * 0.5,
+        delay: Math.random() * 6,
+      })),
+    [count]
+  );
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {stars.map((s) => (
+        <span
+          key={s.id}
+          className="absolute rounded-full bg-[#00ff66]"
+          style={{
+            left: `${s.left}%`,
+            top: `${s.top}%`,
+            width: `${s.size}px`,
+            height: `${s.size}px`,
+            opacity: s.opacity,
+            boxShadow: "0 0 4px rgba(0,255,102,0.5)",
+            animation: `noct-drift ${8 + s.delay}s ease-in-out ${s.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
 }
 
 export function FinalCTA() {
@@ -125,8 +160,11 @@ export function FinalCTA() {
           <AmbientDots count={48} />
         )}
 
+        {/* Static starfield — distant pinpoints */}
+        <Starfield count={isMobile ? 40 : 90} />
+
         {/* Floating dust motes — adds slow rising particle layer */}
-        <DustField count={isMobile ? 18 : 32} />
+        <DustField count={isMobile ? 22 : 40} />
 
         {/* Dim overlay — keeps text dominant */}
         <div className="pointer-events-none absolute inset-0 bg-black/60" />
@@ -175,15 +213,45 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-12 flex justify-center">
-          <a
-            href="https://wizzbot-offi.vercel.app/"
-            className="cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] hover:-translate-y-1"
-          >
-            Enter Nocturnal
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <EnterButton />
         </div>
       </div>
     </section>
+  );
+}
+
+function EnterButton() {
+  const [loading, setLoading] = useState(false);
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (loading) return;
+    e.preventDefault();
+    setLoading(true);
+    // brief cinematic delay before opening
+    window.setTimeout(() => {
+      window.location.href = "https://wizzbot-offi.vercel.app/";
+    }, 900);
+  };
+  return (
+    <a
+      href="https://wizzbot-offi.vercel.app/"
+      onClick={handleClick}
+      aria-busy={loading}
+      className={`cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] transition-all duration-700 hover:-translate-y-1 ${
+        loading ? "pointer-events-none scale-[1.02] opacity-90" : ""
+      }`}
+      style={{ transitionTimingFunction: "var(--ease-cinema)" }}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Entering Nocturnal…
+        </>
+      ) : (
+        <>
+          Enter Nocturnal
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </>
+      )}
+    </a>
   );
 }

@@ -112,7 +112,7 @@ export function Transition() {
         <Line delay={120}>
           The ones that stay
           <br />
-          <span className="italic text-[#00ff66]">are usually worth asking.</span>
+          <span className="italic noct-emerald">are usually worth asking.</span>
         </Line>
       </div>
     </section>

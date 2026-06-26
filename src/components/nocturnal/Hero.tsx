@@ -37,7 +37,7 @@ export function Hero() {
       </header>
 
       {/* Main hero grid */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.15fr] lg:gap-4 lg:pb-24 lg:pt-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.35fr] lg:gap-2 lg:pb-24 lg:pt-8">
         {/* LEFT */}
         <div className="relative">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-[9px] uppercase tracking-[0.28em] text-[#888888] sm:mb-6 sm:text-[10px]">
@@ -87,7 +87,7 @@ export function Hero() {
 
         {/* RIGHT — 3D model (desktop only) */}
         {!isMobile && (
-          <div className="relative h-[480px] w-full lg:h-[760px] xl:h-[820px] lg:-mr-10 xl:-mr-16">
+          <div className="relative h-[480px] w-full lg:h-[880px] xl:h-[940px] lg:-mr-16 xl:-mr-24">
             <SplineHero />
           </div>
         )}
