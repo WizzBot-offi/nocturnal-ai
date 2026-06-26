@@ -160,8 +160,11 @@ export function FinalCTA() {
           <AmbientDots count={48} />
         )}
 
+        {/* Static starfield — distant pinpoints */}
+        <Starfield count={isMobile ? 40 : 90} />
+
         {/* Floating dust motes — adds slow rising particle layer */}
-        <DustField count={isMobile ? 18 : 32} />
+        <DustField count={isMobile ? 22 : 40} />
 
         {/* Dim overlay — keeps text dominant */}
         <div className="pointer-events-none absolute inset-0 bg-black/60" />
@@ -210,15 +213,45 @@ export function FinalCTA() {
         </p>
 
         <div className="mt-12 flex justify-center">
-          <a
-            href="https://wizzbot-offi.vercel.app/"
-            className="cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] hover:-translate-y-1"
-          >
-            Enter Nocturnal
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <EnterButton />
         </div>
       </div>
     </section>
+  );
+}
+
+function EnterButton() {
+  const [loading, setLoading] = useState(false);
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (loading) return;
+    e.preventDefault();
+    setLoading(true);
+    // brief cinematic delay before opening
+    window.setTimeout(() => {
+      window.location.href = "https://wizzbot-offi.vercel.app/";
+    }, 900);
+  };
+  return (
+    <a
+      href="https://wizzbot-offi.vercel.app/"
+      onClick={handleClick}
+      aria-busy={loading}
+      className={`cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] transition-all duration-700 hover:-translate-y-1 ${
+        loading ? "pointer-events-none scale-[1.02] opacity-90" : ""
+      }`}
+      style={{ transitionTimingFunction: "var(--ease-cinema)" }}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Entering Nocturnal…
+        </>
+      ) : (
+        <>
+          Enter Nocturnal
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </>
+      )}
+    </a>
   );
 }
