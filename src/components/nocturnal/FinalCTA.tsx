@@ -9,6 +9,28 @@ const FloatingParticles = lazy(() =>
   }))
 );
 
+// Floating dust motes (CSS-only)
+function DustField({ count = 26 }: { count?: number }) {
+  const motes = Array.from({ length: count }).map((_, i) => {
+    const left = (i * 53) % 100;
+    const delay = (i * 0.7) % 14;
+    const duration = 12 + ((i * 1.3) % 8);
+    return (
+      <span
+        key={i}
+        className="noct-dust"
+        style={{
+          left: `${left}%`,
+          bottom: `-${(i * 11) % 60}px`,
+          animationDelay: `-${delay}s`,
+          animationDuration: `${duration}s`,
+        }}
+      />
+    );
+  });
+  return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">{motes}</div>;
+}
+
 export function FinalCTA() {
   const isMobile = useIsMobile();
   return (
@@ -21,7 +43,7 @@ export function FinalCTA() {
         {/* Subtle grid */}
         <div className="noct-grid absolute inset-0 opacity-[0.55]" />
 
-        {/* Deep ambient bowl — darkens the edges, creates depth */}
+        {/* Deep ambient bowl */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -31,13 +53,33 @@ export function FinalCTA() {
           }}
         />
 
-        {/* Soft radial bloom — back layer */}
+        {/* Volumetric emerald fog — drifting */}
+        <div
+          aria-hidden
+          className="noct-fog pointer-events-none absolute left-1/2 top-1/2 h-[1400px] w-[1400px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.10) 0%, rgba(3,38,18,0.14) 35%, transparent 70%)",
+            filter: "blur(70px)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="noct-fog-alt pointer-events-none absolute left-1/2 top-1/2 h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(0,255,102,0.09) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
+
+        {/* Soft radial bloom — back */}
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-1/2 h-[1200px] w-[1200px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(0,255,102,0.09) 0%, rgba(3,38,18,0.16) 32%, transparent 65%)",
+              "radial-gradient(circle, rgba(0,255,102,0.08) 0%, rgba(3,38,18,0.15) 32%, transparent 65%)",
             filter: "blur(60px)",
           }}
         />
@@ -53,7 +95,7 @@ export function FinalCTA() {
           }}
         />
 
-        {/* Pulsing inner bloom (depth, not brightness) */}
+        {/* Pulsing inner bloom */}
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full"
@@ -83,7 +125,10 @@ export function FinalCTA() {
           <AmbientDots count={48} />
         )}
 
-        {/* Dim overlay — keeps text dominant, deepens atmosphere */}
+        {/* Floating dust motes — adds slow rising particle layer */}
+        <DustField count={isMobile ? 18 : 32} />
+
+        {/* Dim overlay — keeps text dominant */}
         <div className="pointer-events-none absolute inset-0 bg-black/60" />
 
         {/* Vignette */}
@@ -96,7 +141,7 @@ export function FinalCTA() {
           }}
         />
 
-        {/* Horizon emerald sweep (subtle) */}
+        {/* Horizon emerald sweep */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-56"
@@ -123,7 +168,7 @@ export function FinalCTA() {
         <h2 className="font-display text-[clamp(2.2rem,6vw,5rem)] font-light leading-[1.04] tracking-[-0.02em] text-white drop-shadow-[0_0_40px_rgba(0,0,0,0.8)]">
           Questions don&apos;t sleep.
           <br />
-          <span className="italic text-[#00ff66]">Neither does curiosity.</span>
+          <span className="italic noct-emerald">Neither does curiosity.</span>
         </h2>
         <p className="mx-auto mt-7 max-w-md text-base text-[#888]">
           Some answers are waiting.
@@ -132,10 +177,10 @@ export function FinalCTA() {
         <div className="mt-12 flex justify-center">
           <a
             href="https://wizzbot-offi.vercel.app/"
-            className="cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] transition-transform duration-300 hover:-translate-y-0.5"
+            className="cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] hover:-translate-y-1"
           >
             Enter Nocturnal
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
       </div>

@@ -18,8 +18,8 @@ function CardShell({
   return (
     <div
       ref={ref}
-      className={`reveal group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 sm:p-8 ${className}`}
-      style={{ transitionDelay: `${index * 90}ms` }}
+      className={`reveal group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
+      style={{ transitionDelay: `${index * 160}ms` }}
     >
       {/* corner emerald glow */}
       <div
@@ -42,7 +42,7 @@ function CardShell({
 
       <div className="relative mb-6 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-[#555]">
         <span className="flex items-center gap-2">
-          <span className="h-1 w-1 rounded-full bg-[#00ff66]" />
+          <span className="h-1 w-1 rounded-full bg-[#00ff66] noct-emerald-soft" />
           {label}
         </span>
         <span>{time}</span>
@@ -91,25 +91,19 @@ export function Conversations() {
       />
 
       <div className="relative mx-auto max-w-6xl px-6 sm:px-10">
-        <div className="mb-16 max-w-2xl sm:mb-24">
+        <div className="mb-20 max-w-2xl sm:mb-28">
           <p className="mb-4 text-[10px] uppercase tracking-[0.32em] text-[#666]">
             — overheard at 2 am
           </p>
           <h2 className="font-display text-[clamp(2rem,4.4vw,3.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-            A few things people <span className="italic text-[#00ff66]">asked</span>.
+            A few things people <span className="italic noct-emerald">asked</span>.
           </h2>
         </div>
 
-        {/* Intentional staggered composition: editor as anchor, text cards flank with vertical offset */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
-          {/* Recursion — left, slight top alignment */}
-          <div className="lg:col-span-5">
-            <CardShell
-              index={0}
-              label="conversation 01"
-              time="2:14 am"
-              className="lg:min-h-[280px]"
-            >
+        {/* Vertical stack — calm, intentional reveal one after another */}
+        <div className="flex flex-col items-stretch gap-16 sm:gap-24">
+          <div className="mx-auto w-full max-w-3xl">
+            <CardShell index={0} label="conversation 01" time="2:14 am">
               <Q>Explain recursion simply.</Q>
               <A>
                 A function that calls itself, solving a smaller version of the
@@ -123,13 +117,12 @@ export function Conversations() {
             </CardShell>
           </div>
 
-          {/* Python editor — featured anchor, spans two rows */}
-          <div className="lg:col-span-7 lg:row-span-2">
+          <div className="mx-auto w-full max-w-4xl">
             <CardShell
               index={1}
               label="conversation 02"
               time="2:27 am"
-              className="lg:min-h-[600px] p-5 sm:p-7"
+              className="p-5 sm:p-7"
             >
               <div className="mb-6">
                 <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">
@@ -143,14 +136,8 @@ export function Conversations() {
             </CardShell>
           </div>
 
-          {/* Sky — left, offset down to stagger */}
-          <div className="lg:col-span-5 lg:mt-8">
-            <CardShell
-              index={2}
-              label="conversation 03"
-              time="2:41 am"
-              className="lg:min-h-[280px]"
-            >
+          <div className="mx-auto w-full max-w-3xl">
+            <CardShell index={2} label="conversation 03" time="2:41 am">
               <Q>Why is the sky blue?</Q>
               <A>
                 Shorter wavelengths scatter more in our atmosphere. What
