@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { AmbientDots } from "./AmbientDots";
 
@@ -9,7 +9,7 @@ const FloatingParticles = lazy(() =>
   }))
 );
 
-// Floating dust motes (CSS-only)
+// Floating dust motes (CSS-only) — feels like distant stars
 function DustField({ count = 26 }: { count?: number }) {
   const motes = Array.from({ length: count }).map((_, i) => {
     const left = (i * 53) % 100;
@@ -29,6 +29,41 @@ function DustField({ count = 26 }: { count?: number }) {
     );
   });
   return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">{motes}</div>;
+}
+
+// Static starfield — tiny pinpoints of light, no motion
+function Starfield({ count = 80 }: { count?: number }) {
+  const stars = useMemo(
+    () =>
+      Array.from({ length: count }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() < 0.85 ? 1 : 1.5,
+        opacity: 0.25 + Math.random() * 0.5,
+        delay: Math.random() * 6,
+      })),
+    [count]
+  );
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {stars.map((s) => (
+        <span
+          key={s.id}
+          className="absolute rounded-full bg-[#00ff66]"
+          style={{
+            left: `${s.left}%`,
+            top: `${s.top}%`,
+            width: `${s.size}px`,
+            height: `${s.size}px`,
+            opacity: s.opacity,
+            boxShadow: "0 0 4px rgba(0,255,102,0.5)",
+            animation: `noct-drift ${8 + s.delay}s ease-in-out ${s.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
 }
 
 export function FinalCTA() {
