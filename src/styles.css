@@ -40,7 +40,6 @@
 :root {
   --radius: 0.5rem;
 
-  /* Nocturnal palette */
   --background: #000000;
   --foreground: #ffffff;
   --ink: #ffffff;
@@ -71,6 +70,8 @@
   --emerald-glow: #00ff66;
   --emerald-deep: #00e65a;
   --emerald-ambient: #032612;
+
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @layer base {
@@ -90,14 +91,49 @@
     background: #00ff66;
     color: #001a08;
   }
+
+  /* Custom scrollbar — Nocturnal identity */
+  html {
+    scrollbar-color: #00ff66 #000;
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb {
+    background: #00ff66;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 2px #000 inset;
+    transition: box-shadow 300ms ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 10px rgba(0,255,102,0.65), 0 0 0 2px #000 inset;
+  }
+  ::-webkit-scrollbar-corner { background: #000; }
+}
+
+/* Emerald illuminated text — used for highlighted words */
+@utility noct-emerald {
+  color: #00ff66;
+  text-shadow:
+    0 0 1px rgba(0, 255, 102, 0.9),
+    0 0 12px rgba(0, 255, 102, 0.45),
+    0 0 28px rgba(0, 255, 102, 0.25),
+    0 0 60px rgba(0, 255, 102, 0.15);
+  transition: text-shadow 600ms var(--ease-cinema), color 600ms var(--ease-cinema);
+}
+@utility noct-emerald-soft {
+  color: #00ff66;
+  text-shadow:
+    0 0 6px rgba(0, 255, 102, 0.35),
+    0 0 18px rgba(0, 255, 102, 0.18);
 }
 
 /* Reveal-on-scroll utility */
 @utility reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.2s var(--ease-cinema),
+              transform 1.2s var(--ease-cinema);
   will-change: opacity, transform;
 }
 
@@ -124,12 +160,23 @@
 }
 
 @keyframes noct-pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,102,0.35), 0 0 24px rgba(0,255,102,0.18); }
-  50%      { box-shadow: 0 0 0 6px rgba(0,255,102,0), 0 0 36px rgba(0,255,102,0.32); }
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(0,255,102,0.30),
+      0 0 24px rgba(0,255,102,0.20),
+      0 12px 40px -10px rgba(0,255,102,0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(0,255,102,0),
+      0 0 40px rgba(0,255,102,0.35),
+      0 16px 50px -10px rgba(0,255,102,0.45);
+  }
 }
 
 @utility cta-glow {
-  animation: noct-pulse-glow 3.6s ease-in-out infinite;
+  animation: noct-pulse-glow 4.2s ease-in-out infinite;
+  transition: transform 500ms var(--ease-cinema), box-shadow 500ms var(--ease-cinema);
 }
 
 @keyframes noct-line {
@@ -158,6 +205,20 @@
 @utility noct-aurora { animation: noct-aurora 28s ease-in-out infinite; }
 @utility noct-aurora-alt { animation: noct-aurora-alt 36s ease-in-out infinite; }
 
+/* Volumetric emerald fog (slow horizontal drift) */
+@keyframes noct-fog {
+  0%   { transform: translate3d(-8%, 0, 0) scale(1.05); opacity: 0.55; }
+  50%  { transform: translate3d(8%, -2%, 0) scale(1.1); opacity: 0.8; }
+  100% { transform: translate3d(-8%, 0, 0) scale(1.05); opacity: 0.55; }
+}
+@utility noct-fog { animation: noct-fog 40s ease-in-out infinite; }
+@keyframes noct-fog-alt {
+  0%   { transform: translate3d(6%, 2%, 0) scale(1.08); opacity: 0.5; }
+  50%  { transform: translate3d(-6%, -1%, 0) scale(1.12); opacity: 0.75; }
+  100% { transform: translate3d(6%, 2%, 0) scale(1.08); opacity: 0.5; }
+}
+@utility noct-fog-alt { animation: noct-fog-alt 52s ease-in-out infinite; }
+
 /* Subtle background grid */
 @utility noct-grid {
   background-image:
@@ -183,4 +244,13 @@
   background: rgba(0,255,102,0.85);
   box-shadow: 0 0 4px rgba(0,255,102,0.5);
   animation: noct-dust 14s linear infinite;
+}
+
+/* Reduced motion: kill heavy ambient animations */
+@media (prefers-reduced-motion: reduce) {
+  .noct-aurora, .noct-aurora-alt, .noct-fog, .noct-fog-alt,
+  .noct-dust, .noct-dot, .cta-glow {
+    animation: none !important;
+  }
+  .reveal { transition: none; opacity: 1; transform: none; }
 }
