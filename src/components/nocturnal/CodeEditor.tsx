@@ -12,8 +12,12 @@ const C = {
   bi: "#79c0ff",      // builtin
 };
 
+const GREENS = new Set(["#7ee787", "#a5e5b8", "#3fb950", "#00ff66"]);
 function T({ c, children }: { c: string; children: ReactNode }) {
-  return <span style={{ color: c }}>{children}</span>;
+  const glow = GREENS.has(c)
+    ? `0 0 6px ${c}66, 0 0 14px ${c}33`
+    : undefined;
+  return <span style={{ color: c, textShadow: glow }}>{children}</span>;
 }
 
 const lines: ReactNode[] = [
