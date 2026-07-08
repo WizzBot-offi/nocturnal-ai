@@ -3,16 +3,29 @@
 import { useMemo } from "react";
 
 export function Atmosphere() {
-  // Slow drifting dust particles distributed across viewport
+  // Dense drifting dust distributed across the whole viewport
   const dust = useMemo(
     () =>
-      Array.from({ length: 36 }, (_, i) => ({
+      Array.from({ length: 110 }, (_, i) => ({
         id: i,
         left: Math.random() * 100,
         top: Math.random() * 100,
-        delay: Math.random() * 14,
-        duration: 12 + Math.random() * 10,
-        scale: 0.5 + Math.random() * 1.6,
+        delay: Math.random() * 18,
+        duration: 14 + Math.random() * 14,
+        scale: 0.4 + Math.random() * 1.6,
+      })),
+    []
+  );
+  // Fine background stars — small, low-opacity pinpoints
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 70 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 8,
+        duration: 8 + Math.random() * 8,
+        opacity: 0.15 + Math.random() * 0.35,
       })),
     []
   );
