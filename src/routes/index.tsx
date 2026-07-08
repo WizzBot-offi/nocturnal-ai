@@ -15,11 +15,11 @@ export const Route = createFileRoute("/")({
         content:
           "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
       },
-      { property: "og:title", content: "Nocturnal — Awake at 2 AM" },
+      { property: "og:title", content: "Nocturnal — Some questions deserve better answers" },
       {
         property: "og:description",
         content:
-          "A quiet intelligence built for late-night curiosity. Some answers are waiting.",
+          "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
