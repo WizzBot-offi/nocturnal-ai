@@ -47,7 +47,7 @@ function CardShell({
         </span>
         <span>{time}</span>
       </div>
-      <div className="relative">{children}</div>
+      <div className="relative flex flex-1 flex-col">{children}</div>
     </div>
   );
 }
