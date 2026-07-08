@@ -18,7 +18,7 @@ function CardShell({
   return (
     <div
       ref={ref}
-      className={`reveal group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
+      className={`reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
       style={{ transitionDelay: `${index * 160}ms` }}
     >
       {/* corner emerald glow */}
@@ -47,7 +47,7 @@ function CardShell({
         </span>
         <span>{time}</span>
       </div>
-      <div className="relative">{children}</div>
+      <div className="relative flex flex-1 flex-col">{children}</div>
     </div>
   );
 }
@@ -100,9 +100,9 @@ export function Conversations() {
           </h2>
         </div>
 
-        {/* Vertical stack — calm, intentional reveal one after another */}
+        {/* Vertical stack — consistent width and stretched heights */}
         <div className="flex flex-col items-stretch gap-16 sm:gap-24">
-          <div className="mx-auto w-full max-w-3xl">
+          <div className="mx-auto flex w-full max-w-3xl">
             <CardShell index={0} label="conversation 01" time="2:14 am">
               <Q>Explain recursion simply.</Q>
               <A>
@@ -117,14 +117,14 @@ export function Conversations() {
             </CardShell>
           </div>
 
-          <div className="mx-auto w-full max-w-4xl">
+          <div className="mx-auto flex w-full max-w-3xl">
             <CardShell index={1} label="conversation 02" time="2:27 am">
               <Q>Give me a Python palindrome checker.</Q>
               <CodeEditor />
             </CardShell>
           </div>
 
-          <div className="mx-auto w-full max-w-3xl">
+          <div className="mx-auto flex w-full max-w-3xl">
             <CardShell index={2} label="conversation 03" time="2:41 am">
               <Q>Why is the sky blue?</Q>
               <A>
