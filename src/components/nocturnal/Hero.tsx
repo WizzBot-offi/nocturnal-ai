@@ -1,7 +1,43 @@
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SplineHero } from "./SplineHero";
 import { AmbientDots } from "./AmbientDots";
+
+function TryButton() {
+  const [loading, setLoading] = useState(false);
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (loading) return;
+    e.preventDefault();
+    setLoading(true);
+    window.setTimeout(() => {
+      window.location.href = "https://wizzbot-offi.vercel.app/";
+    }, 900);
+  };
+  return (
+    <a
+      href="https://wizzbot-offi.vercel.app/"
+      onClick={onClick}
+      aria-busy={loading}
+      className={`cta-glow group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#00ff66] px-6 py-4 text-sm font-medium text-[#001a08] transition-all duration-700 hover:-translate-y-1 sm:py-3.5 ${
+        loading ? "pointer-events-none scale-[1.02] opacity-90" : ""
+      }`}
+      style={{ transitionTimingFunction: "var(--ease-cinema)" }}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Entering Nocturnal…
+        </>
+      ) : (
+        <>
+          Try Nocturnal
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </>
+      )}
+    </a>
+  );
+}
 
 export function Hero() {
   const isMobile = useIsMobile();
@@ -57,13 +93,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
-            <a
-              href="https://wizzbot-offi.vercel.app/"
-              className="cta-glow group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#00ff66] px-6 py-4 text-sm font-medium text-[#001a08] hover:-translate-y-1 sm:py-3.5"
-            >
-              Try Nocturnal
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            <TryButton />
             <a
               href="https://wizzbot-offi.vercel.app/"
               target="_blank"
