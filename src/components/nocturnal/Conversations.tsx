@@ -18,7 +18,7 @@ function CardShell({
   return (
     <div
       ref={ref}
-      className={`reveal group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
+      className={`reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
       style={{ transitionDelay: `${index * 160}ms` }}
     >
       {/* corner emerald glow */}
