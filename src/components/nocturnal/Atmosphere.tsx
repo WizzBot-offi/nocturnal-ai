@@ -81,6 +81,23 @@ export function Atmosphere() {
         ))}
       </div>
 
+      {/* fine background stars — full-viewport coverage */}
+      <div className="absolute inset-0">
+        {stars.map((s) => (
+          <span
+            key={s.id}
+            className="noct-dot"
+            style={{
+              left: `${s.left}%`,
+              top: `${s.top}%`,
+              animationDelay: `${s.delay}s`,
+              animationDuration: `${s.duration}s`,
+              opacity: s.opacity,
+            }}
+          />
+        ))}
+      </div>
+
       {/* deep top fade so hero copy stays clean */}
       <div
         className="absolute inset-x-0 top-0 h-[40vh]"
