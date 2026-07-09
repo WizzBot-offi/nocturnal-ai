@@ -91,7 +91,7 @@ export function Hero() {
       </div>
 
       {/* Main hero grid */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.35fr] lg:gap-2 lg:pb-20 lg:pt-7">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1.3fr_1fr] lg:gap-6 lg:pb-20 lg:pt-7">
         {/* LEFT */}
         <div className="relative">
           {/* Transmission tag */}
@@ -102,7 +102,7 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(2.6rem,6.2vw,5.25rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
+          <h1 className="font-display text-[clamp(2.6rem,6vw,5.5rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
             Some questions deserve{" "}
             <span
               className="italic noct-emerald noct-glitch"
@@ -147,11 +147,9 @@ export function Hero() {
 
         {/* RIGHT — 3D model (desktop only) */}
         {!isMobile && (
-          <div className="relative h-[480px] w-full lg:-mr-14 lg:h-[880px] xl:-mr-20 xl:h-[940px]">
-            <SplineHero />
-
-            {/* Subject card overlay */}
-            <div className="pointer-events-none absolute bottom-12 left-4 z-30 w-[220px] rounded-md border border-[#00ff66]/25 bg-black/55 p-4 backdrop-blur-md sm:left-8 lg:bottom-14">
+          <div className="relative h-[480px] w-full lg:-mr-14 lg:h-[760px] xl:-mr-20 xl:h-[800px]">
+            {/* Subject card overlay — sits above the model */}
+            <div className="pointer-events-none absolute left-4 top-2 z-30 w-[220px] rounded-md border border-[#00ff66]/25 bg-black/55 p-4 backdrop-blur-md sm:left-8 lg:top-6">
               {/* corner brackets */}
               <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-[#00ff66]/80" />
               <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-[#00ff66]/80" />
@@ -168,6 +166,8 @@ export function Hero() {
                 Observed. Awake. Listening.
               </div>
             </div>
+
+            <SplineHero />
           </div>
         )}
       </div>
