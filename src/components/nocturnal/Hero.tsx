@@ -147,11 +147,11 @@ export function Hero() {
 
         {/* RIGHT — 3D model (desktop only) */}
         {!isMobile && (
-          <div className="relative h-[480px] w-full lg:h-[880px] xl:h-[940px] lg:-mr-16 xl:-mr-24">
+          <div className="relative h-[480px] w-full lg:-mr-14 lg:h-[880px] xl:-mr-20 xl:h-[940px]">
             <SplineHero />
 
             {/* Subject card overlay */}
-            <div className="pointer-events-none absolute bottom-10 left-4 z-20 w-[220px] rounded-md border border-[#00ff66]/25 bg-black/55 p-4 backdrop-blur-md sm:left-8">
+            <div className="pointer-events-none absolute bottom-12 left-4 z-30 w-[220px] rounded-md border border-[#00ff66]/25 bg-black/55 p-4 backdrop-blur-md sm:left-8 lg:bottom-14">
               {/* corner brackets */}
               <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-[#00ff66]/80" />
               <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-[#00ff66]/80" />
