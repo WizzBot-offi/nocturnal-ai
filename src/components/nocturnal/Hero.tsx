@@ -102,7 +102,7 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(2.6rem,6.2vw,5.25rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02] lg:text-[clamp(3.1rem,6.6vw,6.25rem)]">
+          <h1 className="font-display text-[clamp(2.6rem,6.2vw,5.25rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
             Some questions deserve{" "}
             <span
               className="italic noct-emerald noct-glitch"

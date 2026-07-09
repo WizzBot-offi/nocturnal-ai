@@ -14,7 +14,7 @@ export function SplineHero() {
             "radial-gradient(circle, rgba(0,255,102,0.24) 0%, rgba(3,38,18,0.45) 35%, transparent 70%)",
         }}
       />
-      <div className="absolute inset-0 origin-center scale-[1.05] lg:scale-[1.28] xl:scale-[1.36]">
+      <div className="absolute inset-0 origin-top scale-[1.15] lg:scale-[1.55] xl:scale-[1.65] lg:-translate-y-10 xl:-translate-y-16">
         <Suspense fallback={<div className="h-full w-full" />}>
           <Spline scene="https://prod.spline.design/4EnSfM4jjwg5hOM5/scene.splinecode" />
         </Suspense>
