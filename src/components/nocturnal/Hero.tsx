@@ -122,7 +122,7 @@ export function Hero() {
             // You found this on purpose.
           </p>
 
-          <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <TryButton />
             <a
               href="https://wizzbot-offi.vercel.app/"
@@ -136,7 +136,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.24em] text-[#666] sm:mt-14 sm:gap-6 sm:text-[11px]">
+          <div className="mt-10 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.24em] text-[#666] sm:mt-12 sm:gap-6 sm:text-[11px]">
             <span>No noise.</span>
             <span className="h-px w-6 bg-white/15 sm:w-10" />
             <span>No clutter.</span>
