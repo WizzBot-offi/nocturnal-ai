@@ -91,7 +91,7 @@ export function Hero() {
       </div>
 
       {/* Main hero grid */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.35fr] lg:gap-2 lg:pb-24 lg:pt-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.35fr] lg:gap-2 lg:pb-20 lg:pt-7">
         {/* LEFT */}
         <div className="relative">
           {/* Transmission tag */}
