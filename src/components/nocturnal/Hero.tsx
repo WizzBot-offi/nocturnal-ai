@@ -43,7 +43,7 @@ export function Hero() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden">
+    <section className="relative min-h-[100svh] w-full overflow-hidden pt-12">
       {/* faint grid + radial ambience */}
       <div
         aria-hidden
@@ -55,31 +55,52 @@ export function Hero() {
       />
       {isMobile && <AmbientDots count={22} />}
 
-      {/* Nav */}
-      <header className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 sm:px-10">
-        <div className="flex items-center gap-2.5">
-          <span className="relative inline-flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ff66] opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00ff66]" />
-          </span>
-          <span className="font-display text-lg tracking-tight text-white">
-            Nocturnal
-          </span>
+      {/* Fixed top classified bar */}
+      <div className="fixed inset-x-0 top-0 z-40 border-b border-white/[0.06] bg-black/60 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-2 sm:px-8">
+          <div className="flex items-center gap-3">
+            <span className="relative inline-flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ff66] opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#00ff66]" />
+            </span>
+            <span className="font-display text-[15px] tracking-tight text-white">Nocturnal</span>
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.28em] text-white/30 sm:inline">
+              // AFTER HOURS
+            </span>
+          </div>
+          <div className="hidden items-center gap-3 sm:flex">
+            <span className="relative inline-flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ff66] opacity-50" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#00ff66]" />
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[#00ff66]/80 noct-emerald-soft">
+              SIGNAL · STABLE
+            </span>
+          </div>
+          <a
+            href="https://wizzbot-offi.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/80 transition-all duration-500 hover:-translate-y-0.5 hover:border-[#00ff66]/60 hover:text-[#00ff66]"
+            style={{ transitionTimingFunction: "var(--ease-cinema)" }}
+          >
+            ENTER
+            <ArrowUpRight className="h-3 w-3 opacity-70 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
-        <div className="hidden items-center gap-8 text-xs uppercase tracking-[0.22em] text-[#888888] sm:flex">
-          <span>v 0.1</span>
-          <span className="text-white/80">awake · 2:14 am</span>
-        </div>
-      </header>
+      </div>
 
       {/* Main hero grid */}
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pb-20 pt-10 sm:gap-10 sm:px-10 sm:pb-16 sm:pt-6 lg:grid-cols-[1fr_1.35fr] lg:gap-2 lg:pb-24 lg:pt-8">
         {/* LEFT */}
         <div className="relative">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-[9px] uppercase tracking-[0.28em] text-[#888888] sm:mb-6 sm:text-[10px]">
-            <span className="h-1 w-1 rounded-full bg-[#00ff66] noct-emerald-soft" />
-            A quiet intelligence
-          </p>
+          {/* Transmission tag */}
+          <div className="mb-5 flex items-center gap-3 sm:mb-6">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent via-[#00ff66]/60 to-[#00ff66]/60" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[#00ff66]/70 noct-emerald-soft">
+              TRANSMISSION 001 · LATE NIGHT ONLY
+            </span>
+          </div>
 
           <h1 className="font-display text-[clamp(2.6rem,6.2vw,5.25rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
             Some questions deserve{" "}
@@ -95,6 +116,10 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#888888] sm:mt-7 sm:text-lg">
             Built for late-night curiosity, quick answers and meaningful
             conversations.
+          </p>
+
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.28em] text-white/30">
+            // You found this on purpose.
           </p>
 
           <div className="mt-9 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
@@ -124,14 +149,34 @@ export function Hero() {
         {!isMobile && (
           <div className="relative h-[480px] w-full lg:h-[880px] xl:h-[940px] lg:-mr-16 xl:-mr-24">
             <SplineHero />
+
+            {/* Subject card overlay */}
+            <div className="pointer-events-none absolute bottom-10 left-4 z-20 w-[220px] rounded-md border border-[#00ff66]/25 bg-black/55 p-4 backdrop-blur-md sm:left-8">
+              {/* corner brackets */}
+              <span className="absolute -left-px -top-px h-3 w-3 border-l border-t border-[#00ff66]/80" />
+              <span className="absolute -right-px -top-px h-3 w-3 border-r border-t border-[#00ff66]/80" />
+              <span className="absolute -bottom-px -left-px h-3 w-3 border-b border-l border-[#00ff66]/40" />
+              <span className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-[#00ff66]/40" />
+
+              <div className="font-mono text-[9px] uppercase tracking-[0.34em] text-[#00ff66]/70 noct-emerald-soft">
+                SUBJECT
+              </div>
+              <div className="mt-1 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                UNIT — 001
+              </div>
+              <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+                Observed. Awake. Listening.
+              </div>
+            </div>
           </div>
         )}
       </div>
 
       {/* scroll hint */}
-      <div className="pointer-events-none absolute bottom-6 left-1/2 z-20 -translate-x-1/2 text-[10px] uppercase tracking-[0.36em] text-[#555]">
+      <div className="pointer-events-none absolute bottom-6 left-1/2 z-20 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.36em] text-[#555]">
         scroll
       </div>
     </section>
   );
 }
+
