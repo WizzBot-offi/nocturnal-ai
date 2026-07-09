@@ -73,16 +73,6 @@ export function Transition() {
       {/* Floating glowing dust */}
       <Dust count={70} />
 
-      {/* slow emerald vertical line */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-full w-px origin-top -translate-x-1/2"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(0,255,102,0.22) 50%, transparent 100%)",
-          animation: "noct-line 2.8s ease-out forwards",
-        }}
-      />
 
       {/* horizon fades for continuity */}
       <div

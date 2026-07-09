@@ -18,7 +18,7 @@ function CardShell({
   return (
     <div
       ref={ref}
-      className={`reveal group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
+      className={`reveal group relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0c0c0c] to-[#050505] p-7 shadow-[0_30px_80px_-40px_rgba(0,255,102,0.18)] sm:p-9 ${className}`}
       style={{ transitionDelay: `${index * 160}ms` }}
     >
       {/* corner emerald glow */}
@@ -100,40 +100,34 @@ export function Conversations() {
           </h2>
         </div>
 
-        {/* Vertical stack — consistent width and stretched heights */}
-        <div className="flex flex-col items-stretch gap-16 sm:gap-24">
-          <div className="mx-auto flex w-full max-w-3xl">
-            <CardShell index={0} label="conversation 01" time="2:14 am">
-              <Q>Explain recursion simply.</Q>
-              <A>
-                A function that calls itself, solving a smaller version of the
-                same problem — until the problem is small enough to answer
-                directly.
-                <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#555]">
-                  <span className="h-px w-8 bg-white/15" />
-                  base case · recursive case
-                </div>
-              </A>
-            </CardShell>
-          </div>
+        {/* Vertical stack — single flex column, consistent width, natural flow */}
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-16 sm:gap-24">
+          <CardShell index={0} label="conversation 01" time="2:14 am">
+            <Q>Explain recursion simply.</Q>
+            <A>
+              A function that calls itself, solving a smaller version of the
+              same problem — until the problem is small enough to answer
+              directly.
+              <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#555]">
+                <span className="h-px w-8 bg-white/15" />
+                base case · recursive case
+              </div>
+            </A>
+          </CardShell>
 
-          <div className="mx-auto flex w-full max-w-3xl">
-            <CardShell index={1} label="conversation 02" time="2:27 am">
-              <Q>Give me a Python palindrome checker.</Q>
-              <CodeEditor />
-            </CardShell>
-          </div>
+          <CardShell index={1} label="conversation 02" time="2:27 am">
+            <Q>Give me a Python palindrome checker.</Q>
+            <CodeEditor />
+          </CardShell>
 
-          <div className="mx-auto flex w-full max-w-3xl">
-            <CardShell index={2} label="conversation 03" time="2:41 am">
-              <Q>Why is the sky blue?</Q>
-              <A>
-                Shorter wavelengths scatter more in our atmosphere. What
-                reaches your eyes from every direction is the leftover —
-                blue.
-              </A>
-            </CardShell>
-          </div>
+          <CardShell index={2} label="conversation 03" time="2:41 am">
+            <Q>Why is the sky blue?</Q>
+            <A>
+              Shorter wavelengths scatter more in our atmosphere. What
+              reaches your eyes from every direction is the leftover —
+              blue.
+            </A>
+          </CardShell>
         </div>
       </div>
     </section>
