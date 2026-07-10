@@ -78,7 +78,7 @@ export function Hero() {
             </span>
           </div>
           <a
-            href="https://wizzbot-offi.vercel.app/"
+            href="https://nocturnal-app.onrender.com/"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.28em] text-white/80 transition-all duration-500 hover:-translate-y-0.5 hover:border-[#00ff66]/60 hover:text-[#00ff66]"
@@ -125,7 +125,7 @@ export function Hero() {
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <TryButton />
             <a
-              href="https://wizzbot-offi.vercel.app/"
+              href="https://nocturnal-app.onrender.com/"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-sm font-medium text-white/90 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.03] sm:py-3.5"
