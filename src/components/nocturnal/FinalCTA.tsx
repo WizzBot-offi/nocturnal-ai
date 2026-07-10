@@ -228,12 +228,12 @@ function EnterButton() {
     setLoading(true);
     // brief cinematic delay before opening
     window.setTimeout(() => {
-      window.location.href = "https://wizzbot-offi.vercel.app/";
+      window.location.href = "https://nocturnal-app.onrender.com/";
     }, 900);
   };
   return (
     <a
-      href="https://wizzbot-offi.vercel.app/"
+      href="https://nocturnal-app.onrender.com/"
       onClick={handleClick}
       aria-busy={loading}
       className={`cta-glow group inline-flex items-center gap-2 rounded-full bg-[#00ff66] px-8 py-4 text-sm font-medium text-[#001a08] transition-all duration-700 hover:-translate-y-1 ${
