@@ -125,7 +125,7 @@ export function Hero() {
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
             <TryButton />
             <a
-              href="https://nocturnal-app.onrender.com/"
+              href="https://wizzbot-offi.vercel.app/"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-4 text-sm font-medium text-white/90 transition-all duration-500 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.03] sm:py-3.5"
