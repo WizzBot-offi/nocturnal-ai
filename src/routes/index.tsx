@@ -9,13 +9,13 @@ import { Atmosphere } from "@/components/nocturnal/Atmosphere";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nocturnal — Some questions deserve better answers" },
+      { title: "Introducing Nocturnal | AI Assistant" },
       {
         name: "description",
         content:
           "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
       },
-      { property: "og:title", content: "Nocturnal — Some questions deserve better answers" },
+      { property: "og:title", content: "Introducing Nocturnal | AI Assistant" },
       {
         property: "og:description",
         content:

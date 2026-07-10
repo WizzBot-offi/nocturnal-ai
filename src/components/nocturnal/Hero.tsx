@@ -59,10 +59,11 @@ export function Hero() {
       <div className="fixed inset-x-0 top-0 z-40 border-b border-white/[0.06] bg-black/60 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-2 sm:px-8">
           <div className="flex items-center gap-3">
-            <span className="relative inline-flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ff66] opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#00ff66]" />
-            </span>
+            <img
+              src="/nocturnal-logo.svg"
+              alt="Nocturnal"
+              className="h-6 w-6"
+            />
             <span className="font-display text-[15px] tracking-tight text-white">Nocturnal</span>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.28em] text-white/30 sm:inline">
               // AFTER HOURS
