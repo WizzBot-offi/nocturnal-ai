@@ -11,12 +11,12 @@ function TryButton() {
     e.preventDefault();
     setLoading(true);
     window.setTimeout(() => {
-      window.location.href = "https://wizzbot-offi.vercel.app/";
+      window.location.href = "https://nocturnal-app.onrender.com/";
     }, 900);
   };
   return (
     <a
-      href="https://wizzbot-offi.vercel.app/"
+      href="https://nocturnal-app.onrender.com/"
       onClick={onClick}
       aria-busy={loading}
       className={`cta-glow group relative inline-flex items-center justify-center gap-2 rounded-full bg-[#00ff66] px-6 py-4 text-sm font-medium text-[#001a08] transition-all duration-700 hover:-translate-y-1 sm:py-3.5 ${
