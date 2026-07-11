@@ -14,7 +14,7 @@ export function Atmosphere() {
         duration: 14 + Math.random() * 14,
         scale: 0.4 + Math.random() * 1.6,
       })),
-    []
+    [],
   );
   // Fine background stars — small, low-opacity pinpoints
   const stars = useMemo(
@@ -27,20 +27,16 @@ export function Atmosphere() {
         duration: 8 + Math.random() * 8,
         opacity: 0.15 + Math.random() * 0.35,
       })),
-    []
+    [],
   );
 
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-    >
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* base vignette */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 30%, rgba(3,38,18,0.35) 0%, transparent 55%)",
+          background: "radial-gradient(ellipse at 50% 30%, rgba(3,38,18,0.35) 0%, transparent 55%)",
         }}
       />
       {/* drifting emerald aurora — top-left */}
@@ -102,8 +98,7 @@ export function Atmosphere() {
       <div
         className="absolute inset-x-0 top-0 h-[40vh]"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.85) 0%, transparent 100%)",
         }}
       />
     </div>

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export function useReveal<T extends HTMLElement = HTMLDivElement>(
-  options: IntersectionObserverInit = { threshold: 0.25 }
+  options: IntersectionObserverInit = { threshold: 0.25 },
 ) {
   const ref = useRef<T | null>(null);
   useEffect(() => {

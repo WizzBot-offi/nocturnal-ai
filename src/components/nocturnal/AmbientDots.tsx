@@ -12,7 +12,7 @@ export function AmbientDots({ count = 28 }: { count?: number }) {
         duration: 6 + Math.random() * 6,
         scale: 0.5 + Math.random() * 1.4,
       })),
-    [count]
+    [count],
   );
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">

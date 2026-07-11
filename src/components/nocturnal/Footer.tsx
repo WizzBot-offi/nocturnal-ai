@@ -3,11 +3,7 @@ export function Footer() {
     <footer className="relative w-full border-t border-white/5 bg-black">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-4 px-6 py-10 text-[11px] uppercase tracking-[0.28em] text-[#555] sm:flex-row sm:items-center sm:px-10">
         <div className="flex items-center gap-2.5">
-          <img
-            src="/nocturnal-logo.svg"
-            alt="Nocturnal"
-            className="h-5 w-5"
-          />
+          <img src="/nocturnal-logo.svg" alt="Nocturnal" className="h-5 w-5" />
           <span className="font-display text-sm normal-case tracking-tight text-white/80">
             Nocturnal
           </span>

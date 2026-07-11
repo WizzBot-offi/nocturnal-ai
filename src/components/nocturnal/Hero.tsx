@@ -59,11 +59,7 @@ export function Hero() {
       <div className="fixed inset-x-0 top-0 z-40 border-b border-white/[0.06] bg-black/60 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-2 sm:px-8">
           <div className="flex items-center gap-3">
-            <img
-              src="/nocturnal-logo.svg"
-              alt="Nocturnal"
-              className="h-6 w-6"
-            />
+            <img src="/nocturnal-logo.svg" alt="Nocturnal" className="h-6 w-6" />
             <span className="font-display text-[15px] tracking-tight text-white">Nocturnal</span>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.28em] text-white/30 sm:inline">
               // AFTER HOURS
@@ -105,18 +101,14 @@ export function Hero() {
 
           <h1 className="font-display text-[clamp(2.6rem,6vw,5.5rem)] font-light leading-[1.04] tracking-[-0.02em] text-white sm:leading-[1.02]">
             Some questions deserve{" "}
-            <span
-              className="italic noct-emerald noct-glitch"
-              data-text="better"
-            >
+            <span className="italic noct-emerald noct-glitch" data-text="better">
               better
             </span>{" "}
             answers.
           </h1>
 
           <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#888888] sm:mt-7 sm:text-lg">
-            Built for late-night curiosity, quick answers and meaningful
-            conversations.
+            Built for late-night curiosity, quick answers and meaningful conversations.
           </p>
 
           <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.28em] text-white/30">
@@ -180,4 +172,3 @@ export function Hero() {
     </section>
   );
 }
-

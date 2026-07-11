@@ -25,7 +25,7 @@ function Dust({ count = 60 }: { count?: number }) {
         duration: 10 + Math.random() * 12,
         scale: 0.4 + Math.random() * 1.6,
       })),
-    [count]
+    [count],
   );
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -64,8 +64,7 @@ export function Transition() {
         aria-hidden
         className="noct-aurora-alt pointer-events-none absolute right-[5%] bottom-[10%] h-[70vh] w-[70vh] rounded-full opacity-40"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,255,102,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,255,102,0.05) 0%, transparent 70%)",
           filter: "blur(90px)",
         }}
       />
@@ -73,22 +72,19 @@ export function Transition() {
       {/* Floating glowing dust */}
       <Dust count={70} />
 
-
       {/* horizon fades for continuity */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-40"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%)",
         }}
       />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
         style={{
-          background:
-            "linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 100%)",
+          background: "linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 100%)",
         }}
       />
 

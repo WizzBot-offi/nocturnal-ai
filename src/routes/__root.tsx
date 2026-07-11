@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -83,17 +84,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Introducing Nocturnal | AI Assistant" },
-      { name: "description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
+      {
+        name: "description",
+        content:
+          "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Introducing Nocturnal | AI Assistant" },
-      { property: "og:description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
+      {
+        property: "og:description",
+        content:
+          "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Introducing Nocturnal | AI Assistant" },
-      { name: "twitter:description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png",
+      },
     ],
     links: [
       {
@@ -117,6 +138,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
