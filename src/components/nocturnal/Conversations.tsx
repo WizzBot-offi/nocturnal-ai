@@ -26,8 +26,7 @@ function CardShell({
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-50 transition-opacity duration-700 group-hover:opacity-90"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,255,102,0.18) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,255,102,0.18) 0%, transparent 70%)",
         }}
       />
       {/* hairline top */}
@@ -35,8 +34,7 @@ function CardShell({
         aria-hidden
         className="pointer-events-none absolute inset-x-6 top-0 h-px"
         style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(0,255,102,0.45), transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(0,255,102,0.45), transparent)",
         }}
       />
 
@@ -55,9 +53,7 @@ function CardShell({
 function Q({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-5">
-      <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">
-        question
-      </div>
+      <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-[#666]">question</div>
       <p className="font-display text-xl font-light leading-snug text-white sm:text-2xl">
         {children}
       </p>
@@ -85,8 +81,7 @@ export function Conversations() {
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/4 h-[600px] w-[1000px] -translate-x-1/2 opacity-50"
         style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(3,38,18,0.4) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center, rgba(3,38,18,0.4) 0%, transparent 65%)",
         }}
       />
 
@@ -105,9 +100,8 @@ export function Conversations() {
           <CardShell index={0} label="conversation 01" time="2:14 am">
             <Q>Explain recursion simply.</Q>
             <A>
-              A function that calls itself, solving a smaller version of the
-              same problem — until the problem is small enough to answer
-              directly.
+              A function that calls itself, solving a smaller version of the same problem — until
+              the problem is small enough to answer directly.
               <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#555]">
                 <span className="h-px w-8 bg-white/15" />
                 base case · recursive case
@@ -123,9 +117,8 @@ export function Conversations() {
           <CardShell index={2} label="conversation 03" time="2:41 am">
             <Q>Why is the sky blue?</Q>
             <A>
-              Shorter wavelengths scatter more in our atmosphere. What
-              reaches your eyes from every direction is the leftover —
-              blue.
+              Shorter wavelengths scatter more in our atmosphere. What reaches your eyes from every
+              direction is the leftover — blue.
             </A>
           </CardShell>
         </div>

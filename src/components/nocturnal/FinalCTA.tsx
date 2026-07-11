@@ -6,7 +6,7 @@ import { AmbientDots } from "./AmbientDots";
 const FloatingParticles = lazy(() =>
   import("@/components/ui/floating-particles").then((m) => ({
     default: m.FloatingParticles,
-  }))
+  })),
 );
 
 // Floating dust motes (CSS-only) — feels like distant stars
@@ -28,7 +28,11 @@ function DustField({ count = 26 }: { count?: number }) {
       />
     );
   });
-  return <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">{motes}</div>;
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      {motes}
+    </div>
+  );
 }
 
 // Static starfield — tiny pinpoints of light, no motion
@@ -43,7 +47,7 @@ function Starfield({ count = 80 }: { count?: number }) {
         opacity: 0.25 + Math.random() * 0.5,
         delay: Math.random() * 6,
       })),
-    [count]
+    [count],
   );
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -102,8 +106,7 @@ export function FinalCTA() {
           aria-hidden
           className="noct-fog-alt pointer-events-none absolute left-1/2 top-1/2 h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,102,0.09) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0,255,102,0.09) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
         />
@@ -124,8 +127,7 @@ export function FinalCTA() {
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,102,0.10) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0,255,102,0.10) 0%, transparent 70%)",
             filter: "blur(50px)",
           }}
         />
@@ -135,8 +137,7 @@ export function FinalCTA() {
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
-            background:
-              "radial-gradient(circle, rgba(0,255,102,0.13) 0%, transparent 72%)",
+            background: "radial-gradient(circle, rgba(0,255,102,0.13) 0%, transparent 72%)",
             filter: "blur(40px)",
             animation: "noct-pulse 8s ease-in-out infinite",
           }}
@@ -184,8 +185,7 @@ export function FinalCTA() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-0 h-56"
           style={{
-            background:
-              "linear-gradient(0deg, rgba(0,255,102,0.05) 0%, transparent 100%)",
+            background: "linear-gradient(0deg, rgba(0,255,102,0.05) 0%, transparent 100%)",
           }}
         />
         {/* Top continuity fade */}
@@ -193,8 +193,7 @@ export function FinalCTA() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-40"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%)",
+            background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 100%)",
           }}
         />
       </div>
@@ -208,9 +207,7 @@ export function FinalCTA() {
           <br />
           <span className="italic noct-emerald">Neither does curiosity.</span>
         </h2>
-        <p className="mx-auto mt-7 max-w-md text-base text-[#888]">
-          Some answers are waiting.
-        </p>
+        <p className="mx-auto mt-7 max-w-md text-base text-[#888]">Some answers are waiting.</p>
 
         <div className="mt-12 flex justify-center">
           <EnterButton />

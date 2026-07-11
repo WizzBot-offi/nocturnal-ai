@@ -63,15 +63,23 @@ export function FloatingParticles({
         this.acceleration.set(0, 0, 0);
         this.is_active = false;
       }
-      updatePosition() { this.position.copy(this.velocity); }
+      updatePosition() {
+        this.position.copy(this.velocity);
+      }
       updateVelocity() {
         this.acceleration.divideScalar(this.mass);
         this.velocity.add(this.acceleration);
       }
-      applyForce(v: THREE.Vector3) { this.acceleration.add(v); }
+      applyForce(v: THREE.Vector3) {
+        this.acceleration.add(v);
+      }
       activate() {
         this.is_active = true;
-        const force = this.anchor.clone().sub(this.position).normalize().multiplyScalar(antigravityForce);
+        const force = this.anchor
+          .clone()
+          .sub(this.position)
+          .normalize()
+          .multiplyScalar(antigravityForce);
         this.applyForce(force);
       }
     }
@@ -89,7 +97,8 @@ export function FloatingParticles({
 
     // Soft circular sprite texture
     const canvas = document.createElement("canvas");
-    canvas.width = 64; canvas.height = 64;
+    canvas.width = 64;
+    canvas.height = 64;
     const ctx = canvas.getContext("2d")!;
     const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
     grad.addColorStop(0, "rgba(255,255,255,1)");
@@ -168,7 +177,10 @@ export function FloatingParticles({
       }
       posAttr.needsUpdate = true;
       renderer.render(scene, camera);
-      if (now - lastActivate > 10) { activate(); lastActivate = now; }
+      if (now - lastActivate > 10) {
+        activate();
+        lastActivate = now;
+      }
       sceneRef.current.animationId = requestAnimationFrame(animate);
     };
 
@@ -193,7 +205,16 @@ export function FloatingParticles({
       mat.dispose();
       texture.dispose();
     };
-  }, [particleCount, particleColor1, particleColor2, cameraDistance, rotationSpeed, particleSize, antigravityForce, activationRate]);
+  }, [
+    particleCount,
+    particleColor1,
+    particleColor2,
+    cameraDistance,
+    rotationSpeed,
+    particleSize,
+    antigravityForce,
+    activationRate,
+  ]);
 
   return (
     <div

@@ -2,21 +2,19 @@
 import { type ReactNode } from "react";
 
 const C = {
-  kw: "#ff7ab2",      // keyword (def, return)
-  fn: "#7ee787",      // function name
-  ty: "#79c0ff",      // type / class
-  str: "#a5e5b8",     // string
-  num: "#ffa657",     // number
-  cm: "#6b7280",      // comment
-  pn: "#c9d1d9",      // punctuation / default
-  bi: "#79c0ff",      // builtin
+  kw: "#ff7ab2", // keyword (def, return)
+  fn: "#7ee787", // function name
+  ty: "#79c0ff", // type / class
+  str: "#a5e5b8", // string
+  num: "#ffa657", // number
+  cm: "#6b7280", // comment
+  pn: "#c9d1d9", // punctuation / default
+  bi: "#79c0ff", // builtin
 };
 
 const GREENS = new Set(["#7ee787", "#a5e5b8", "#3fb950", "#00ff66"]);
 function T({ c, children }: { c: string; children: ReactNode }) {
-  const glow = GREENS.has(c)
-    ? `0 0 6px ${c}66, 0 0 14px ${c}33`
-    : undefined;
+  const glow = GREENS.has(c) ? `0 0 6px ${c}66, 0 0 14px ${c}33` : undefined;
   return <span style={{ color: c, textShadow: glow }}>{children}</span>;
 }
 
@@ -39,8 +37,7 @@ const lines: ReactNode[] = [
   </>,
   <>
     {"    "}
-    <T c={C.kw}>return</T> s <T c={C.pn}>==</T> s
-    <T c={C.pn}>[::</T>
+    <T c={C.kw}>return</T> s <T c={C.pn}>==</T> s<T c={C.pn}>[::</T>
     <T c={C.num}>-1</T>
     <T c={C.pn}>]</T>
   </>,
@@ -51,8 +48,7 @@ const lines: ReactNode[] = [
     <T c={C.fn}>is_palindrome</T>
     <T c={C.pn}>(</T>
     <T c={C.str}>&quot;level&quot;</T>
-    <T c={C.pn}>))</T>{" "}
-    <T c={C.cm}># True</T>
+    <T c={C.pn}>))</T> <T c={C.cm}># True</T>
   </>,
 ];
 
@@ -69,9 +65,7 @@ export function CodeEditor() {
         <div className="font-mono text-[10.5px] tracking-wide text-[#7d8590]">
           nocturnal / scripts / palindrome.py
         </div>
-        <div className="text-[9px] uppercase tracking-[0.24em] text-[#00ff66]/70">
-          py
-        </div>
+        <div className="text-[9px] uppercase tracking-[0.24em] text-[#00ff66]/70">py</div>
       </div>
 
       {/* Tab */}
