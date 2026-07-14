@@ -1,10 +1,10 @@
-# 🌙 Nocturnal AI
+# Nocturnal AI
 
 Official website for Nocturnal AI.
 
 A modern AI assistant built for intelligent conversations, adaptive reasoning, live web search, voice interaction, and image understanding.
 
-## ✨ Website Features
+## Website Features
 
 - Product showcase
 - Interactive UI
@@ -14,7 +14,7 @@ A modern AI assistant built for intelligent conversations, adaptive reasoning, l
 - FAQ
 - Direct access to the Nocturnal AI application
 
-## 🛠 Built With
+## Built With
 
 - React
 - TanStack Start
@@ -22,11 +22,11 @@ A modern AI assistant built for intelligent conversations, adaptive reasoning, l
 - Tailwind CSS
 - Vite
 
-## 🚀 Live Website
+## Live Website
 
 https://nocturnal-app.vercel.app
 
-## 🤖 Try Nocturnal AI
+## Try Nocturnal AI
 
 Click **Try Nocturnal** on the website to access the application.
 
