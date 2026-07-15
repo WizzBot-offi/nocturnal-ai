@@ -80,25 +80,56 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Introducing Nocturnal | AI Assistant" },
-      { name: "description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Introducing Nocturnal | AI Assistant" },
-      { property: "og:description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Introducing Nocturnal | AI Assistant" },
-      { name: "twitter:description", content: "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c268b4d-41ac-46f4-8f5b-e2fc03ffc5f1/id-preview-bffbeb33--90390c15-d993-4942-8b30-e73441fa121b.lovable.app-1782494348876.png" },
-    ],
+  { charSet: "utf-8" },
+  { name: "viewport", content: "width=device-width, initial-scale=1" },
+  { title: "Introducing Nocturnal | AI Assistant" },
+  {
+    name: "description",
+    content:
+      "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+  },
+  { name: "author", content: "Wizz" },
+  { name: "application-name", content: "Nocturnal" },
+  { name: "theme-color", content: "#000000" },
+  { name: "robots", content: "index,follow" },
+  { property: "og:title", content: "Introducing Nocturnal | AI Assistant" },
+  {
+    property: "og:description",
+    content:
+      "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+  },
+  { property: "og:type", content: "website" },
+  { property: "og:site_name", content: "Nocturnal" },
+  {
+    property: "og:image",
+    content: "https://nocturnal-app.vercel.app/og-image.png",
+  },
+  { property: "og:image:width", content: "1200" },
+  { property: "og:image:height", content: "630" },
+  { property: "og:image:alt", content: "Nocturnal AI" },
+  { name: "twitter:card", content: "summary_large_image" },
+  {
+    name: "twitter:title",
+    content: "Introducing Nocturnal | AI Assistant",
+  },
+  {
+    name: "twitter:description",
+    content:
+      "Built for late-night curiosity, quick answers and meaningful conversations. Nocturnal is awake.",
+  },
+  {
+    name: "twitter:image",
+    content: "https://nocturnal-app.vercel.app/og-image.png",
+  },
+],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "canonical",
+        href: "https://nocturnal-app.vercel.app",
       },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     ],
